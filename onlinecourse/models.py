@@ -127,7 +127,7 @@ class Choice(models.Model):
 class Submission(models.Model):
     enrollment = models.ForeignKey(Enrollment, on_delete=models.CASCADE)
     choices = models.ManyToManyField(Choice)
+    note = models.CharField(max_length=200, null=True)
 
     def __str__(self):
-        return "Enrollment: " + self.enrollment.course + "," + \
-                "Submission: " + self.choices
+        return "Submission: " + self.note
